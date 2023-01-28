@@ -1,2 +1,5 @@
 ﻿*.patch
 /.vs
+/VS/BetaAI/.vs/BetaAI
+/VS/BetaAI/BetaAI/bin/Debug
+/VS/BetaAI/BetaAI/obj

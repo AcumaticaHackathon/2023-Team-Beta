@@ -1,0 +1,1 @@
+"C:\dev\am\Hack2023BetaGit\VS\BetaAI\BetaAI.sln"
