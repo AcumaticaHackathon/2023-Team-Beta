@@ -68,6 +68,7 @@
     <Compile Include="DAC\AITransEntityRecog.cs" />
     <Compile Include="DAC\AITransKeyPhrase.cs" />
     <Compile Include="Graphs\AITransMaint.cs" />
+    <Compile Include="DAC\AITranSentiment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
