@@ -34,6 +34,9 @@
     <Reference Include="PX.Common">
       <HintPath>..\..\..\..\..\..\am\Hack2023Beta\Bin\PX.Common.dll</HintPath>
     </Reference>
+    <Reference Include="PX.Common.Parser">
+      <HintPath>..\..\..\..\..\..\AM\Hack2023Beta\Bin\PX.Common.Parser.dll</HintPath>
+    </Reference>
     <Reference Include="PX.Common.Std">
       <HintPath>..\..\..\..\..\..\am\Hack2023Beta\Bin\PX.Common.Std.dll</HintPath>
     </Reference>
@@ -42,6 +45,13 @@
     </Reference>
     <Reference Include="PX.Data">
       <HintPath>..\..\..\..\..\..\am\Hack2023Beta\Bin\PX.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data.BQL.Fluent, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\AM\Hack2023Beta\Bin\PX.Data.BQL.Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DbServices">
+      <HintPath>..\..\..\..\..\..\AM\Hack2023Beta\Bin\PX.DbServices.dll</HintPath>
     </Reference>
     <Reference Include="PX.Objects">
       <HintPath>..\..\..\..\..\..\am\Hack2023Beta\Bin\PX.Objects.DLL</HintPath>
@@ -57,6 +67,7 @@
     <Compile Include="DAC\AITransEntityLink.cs" />
     <Compile Include="DAC\AITransEntityRecog.cs" />
     <Compile Include="DAC\AITransKeyPhrase.cs" />
+    <Compile Include="Graphs\AITransMaint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
