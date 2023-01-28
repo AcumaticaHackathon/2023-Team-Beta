@@ -1,16 +1,17 @@
 using System;
 using PX.Data;
-using PX.Data.BQL.Fluent;
 
 namespace BetaAI
 {
   public class AITransMaint : PXGraph<AITransMaint>
   {
-        #region DataViews
-        public SelectFrom<AITrans>.View Transactions;
-        #endregion
 
-        #region Event Handlers
-        #endregion
-    }
+    public PXSave<AITrans> Save;
+    public PXCancel<AITrans> Cancel;
+
+    public PXFilter<AITrans> MasterView;
+    public PXFilter<AITransKeyPhrase> DetailsView;  //TODO:  Need to rename this to be specific type and add all 4
+
+
+  }
 }
