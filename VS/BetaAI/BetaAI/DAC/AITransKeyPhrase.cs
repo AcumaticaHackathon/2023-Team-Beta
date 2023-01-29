@@ -22,27 +22,6 @@ namespace BetaAI
     public abstract class lIneNbr : PX.Data.BQL.BqlInt.Field<lIneNbr> { }
     #endregion
 
-    #region EntityName
-    [PXDBString(200, IsUnicode = true, InputMask = "")]
-    [PXUIField(DisplayName = "Entity Name")]
-    public virtual string EntityName { get; set; }
-    public abstract class entityName : PX.Data.BQL.BqlString.Field<entityName> { }
-    #endregion
-
-    #region EntityText
-    [PXDBString(IsUnicode = true, InputMask = "")]
-    [PXUIField(DisplayName = "Entity Text")]
-    public virtual string EntityText { get; set; }
-    public abstract class entityText : PX.Data.BQL.BqlString.Field<entityText> { }
-    #endregion
-
-    #region Confidence
-    [PXDBDecimal()]
-    [PXUIField(DisplayName = "Confidence")]
-    public virtual Decimal? Confidence { get; set; }
-    public abstract class confidence : PX.Data.BQL.BqlDecimal.Field<confidence> { }
-    #endregion
-
     #region KeyPhrase
     [PXDBString(500, IsUnicode = true, InputMask = "")]
     [PXUIField(DisplayName = "Key Phrase")]
