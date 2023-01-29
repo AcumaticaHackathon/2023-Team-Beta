@@ -81,6 +81,7 @@ namespace BetaAI
                     if (crmCase != null)
                     {
                         t.RefNbr = crmCase.CaseCD;
+                        t.RefNoteId = crmCase.NoteID;
                     }
                     else
                     {
