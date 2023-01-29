@@ -31,6 +31,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Ref\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PX.Common">
       <HintPath>..\..\..\..\..\..\am\Hack2023Beta\Bin\PX.Common.dll</HintPath>
     </Reference>
@@ -69,6 +73,10 @@
     <Compile Include="DAC\AITransKeyPhrase.cs" />
     <Compile Include="Graphs\AITransMaint.cs" />
     <Compile Include="DAC\AITranSentiment.cs" />
+    <Compile Include="JsonClasses\CustomEntityResponse.cs" />
+    <Compile Include="JsonClasses\EntityLinkResponse.cs" />
+    <Compile Include="JsonClasses\KeyPhraseResponse.cs" />
+    <Compile Include="JsonClasses\SentimentResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +87,9 @@
       <Version>5.0.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Ref\Newtonsoft.Json.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
