@@ -1,5 +1,6 @@
 using System;
 using PX.Data;
+using PX.Objects.CS;
 
 namespace BetaAI
 {
@@ -10,6 +11,7 @@ namespace BetaAI
     #region TransNbr
     [PXDBString(15, IsKey = true, IsUnicode = true, InputMask = "")]
     [PXUIField(DisplayName = "Trans Nbr")]
+        [AutoNumber(typeof(AINumberingSequence.aISequenceID), typeof(AccessInfo.businessDate))]
     public virtual string TransNbr { get; set; }
     public abstract class transNbr : PX.Data.BQL.BqlString.Field<transNbr> { }
     #endregion
