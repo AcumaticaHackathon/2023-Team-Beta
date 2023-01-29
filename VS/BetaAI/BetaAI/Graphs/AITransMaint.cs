@@ -88,7 +88,7 @@ namespace BetaAI
                 }
             }
 
-            Actions.PressSave();
+            this.Persist();
 
 
             return adapter.Get();
@@ -116,7 +116,7 @@ namespace BetaAI
                     this.Sentiment.Delete(onerec);
                 }
             }
-            Actions.PressSave();
+            this.Persist();
 
 
             var sb = new System.Text.StringBuilder();
@@ -176,7 +176,7 @@ namespace BetaAI
             MasterView.Cache.Update(rec);
             MasterView.Update(rec);
 
-            Actions.PressSave();
+            this.Persist();
 
             return adapter.Get();
         }
@@ -206,7 +206,7 @@ namespace BetaAI
                     this.EntityLink.Delete(onerec);
                 }
             }
-            Actions.PressSave();
+            this.Persist();
 
 
 
@@ -265,7 +265,7 @@ namespace BetaAI
             MasterView.Cache.Update(rec);
             MasterView.Update(rec);
 
-            Actions.PressSave();
+            this.Persist();
 
             return adapter.Get();
         }
@@ -293,7 +293,7 @@ namespace BetaAI
                     this.EntityRecog.Delete(onerec);
                 }
             }
-            Actions.PressSave();
+            this.Persist();
 
             // This one works different.  You have to call a "Job" and then later on call to get the results
 
@@ -353,31 +353,29 @@ namespace BetaAI
             CustomEntityResponse oResponse;
             oResponse = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomEntityResponse>(resp);
 
-            foreach (var task in oResponse.tasks)
+            rec.EntityLinkProcDate = DateTime.Now;
+            foreach (var item in oResponse.tasks.items)
             {
-                foreach (var item in task.items)
-                {
-                    foreach (var doc in item.results.documents)
-                    {
-                        foreach (var entity in doc.entities)
-                        {
-                            var newrec = new AITransEntityRecog();
-                            newrec.TransNbr = rec.TransNbr;
-                            newrec.EntityText = entity.text;
-                            newrec.Category = entity.category;
-                            newrec.Confidence = new System.Decimal(entity.confidenceScore);
 
-                            EntityRecog.Insert(newrec);
-                        }
+                foreach (var doc in item.results.documents)
+                {
+                    foreach (var entity in doc.entities)
+                    {
+                        var newrec = new AITransEntityRecog();
+                        newrec.TransNbr = rec.TransNbr;
+                        newrec.EntityText = entity.text;
+                        newrec.Category = entity.category;
+                        newrec.Confidence = new System.Decimal(entity.confidenceScore);
+
+                        EntityRecog.Insert(newrec);
                     }
                 }
             }
 
-
             MasterView.Cache.Update(rec);
             MasterView.Update(rec);
 
-            Actions.PressSave();
+            this.Persist();
 
             return adapter.Get();
         }
@@ -386,7 +384,7 @@ namespace BetaAI
         #region keyphrase
         public PXAction<AITrans> analyzeKeyPhrase;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Analyze KeyPhrase", MapEnableRights = PXCacheRights.Insert,
+        [PXUIField(DisplayName = "KeyPhrase", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
         public virtual System.Collections.IEnumerable AnalyzeKeyPhrase(PXAdapter adapter)
         {
@@ -404,7 +402,7 @@ namespace BetaAI
                     this.KeyPhrase.Delete(onerec);
                 }
             }
-            Actions.PressSave();
+            this.Persist();
 
 
 
@@ -462,7 +460,7 @@ namespace BetaAI
             MasterView.Cache.Update(rec);
             MasterView.Update(rec);
 
-            Actions.PressSave();
+            this.Persist();
 
             return adapter.Get();
         }

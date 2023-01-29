@@ -8,7 +8,7 @@ public class CustomEntityResponse
     public string status { get; set; }
     public List<object> errors { get; set; }
     public string displayName { get; set; }
-    public System.Collections.Generic.List<Tasks> tasks { get; set; }
+    public Tasks tasks { get; set; }
 
 
     public class Document
