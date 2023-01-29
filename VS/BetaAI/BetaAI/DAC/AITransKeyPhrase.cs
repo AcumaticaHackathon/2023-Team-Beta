@@ -10,7 +10,8 @@ namespace BetaAI
     #region TransNbr
     [PXDBString(15, IsUnicode = true, InputMask = "")]
     [PXUIField(DisplayName = "Trans Nbr")]
-    public virtual string TransNbr { get; set; }
+        [PXDefault(typeof(AITrans.transNbr))]
+        public virtual string TransNbr { get; set; }
     public abstract class transNbr : PX.Data.BQL.BqlString.Field<transNbr> { }
     #endregion
 

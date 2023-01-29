@@ -9,11 +9,14 @@ namespace BetaAI
 
 
         public SelectFrom<AITrans>.View MasterView;
-        public SelectFrom<AITransEntityLink>.View EntityLink;  //TODO:  Need to rename this to be specific type and add all 4
-        public SelectFrom<AITranSentiment>.View Sentiment;
-        public SelectFrom<AITransEntityRecog>.View EntityRecognition;
-        public SelectFrom<AITransKeyPhrase>.View KeyPhrase;
-
-
+        public SelectFrom<AITransEntityLink>
+            .Where<AITransEntityLink.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View EntityLink;  //TODO:  Need to rename this to be specific type and add all 4
+        public SelectFrom<AITranSentiment>
+            .Where<AITranSentiment.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View Sentiment;
+        public SelectFrom<AITransEntityRecog>
+            .Where<AITransEntityRecog.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View EntityRecog;
+            
+        public SelectFrom<AITransKeyPhrase>
+            .Where<AITransKeyPhrase.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View KeyPhrase;
     }
 }
