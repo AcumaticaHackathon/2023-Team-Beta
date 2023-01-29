@@ -77,7 +77,7 @@ namespace BetaAI
                         .Where<CRActivity.noteID.IsEqual<@P.AsGuid>>.View.Select(graph, mail.RefNoteID);
 
                     CRCase crmCase = (CRCase)res;
-                    t.RefType = "CM";
+                    t.RefType = "CRCase";
                     if (crmCase != null)
                     {
                         t.RefNbr = crmCase.CaseCD;
