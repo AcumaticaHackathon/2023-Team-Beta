@@ -289,7 +289,7 @@ namespace BetaAI
 
 
         #region entityrecogAction
-        public PXAction<AITrans> analyzeEntityRecog;
+        public PXAction<AITrans> analyzeEntityRecogAction;
         [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "EntityRecog", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
@@ -404,8 +404,8 @@ namespace BetaAI
         }
         #endregion
 
-        #region keyphraseAction
-        public PXAction<AITrans> analyzeKeyPhrase;
+        #region keyphraseaction
+        public PXAction<AITrans> analyzeKeyPhraseAction;
         [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "KeyPhrase", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
