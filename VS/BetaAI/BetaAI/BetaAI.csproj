@@ -65,8 +65,11 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AISendRequest.cs" />
+    <Compile Include="Constants.cs" />
     <Compile Include="DAC\AITrans.cs" />
     <Compile Include="DAC\AITransEntityLink.cs" />
     <Compile Include="DAC\AITransEntityRecog.cs" />
