@@ -76,6 +76,7 @@
     <Compile Include="DAC\AITransKeyPhrase.cs" />
     <Compile Include="Graphs\AITransMaint.cs" />
     <Compile Include="DAC\AITranSentiment.cs" />
+    <Compile Include="Graphs\CRCaseMaintExt.cs" />
     <Compile Include="JsonClasses\CustomEntityResponse.cs" />
     <Compile Include="JsonClasses\EntityLinkResponse.cs" />
     <Compile Include="JsonClasses\KeyPhraseResponse.cs" />
