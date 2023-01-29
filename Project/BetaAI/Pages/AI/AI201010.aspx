@@ -33,9 +33,9 @@
 		<Items>
 			<px:PXTabItem Text="Analysis" >
 				<Template>
-					<px:PXFormView runat="server" ID="CstFormView20" DataMember="MasterView">
+					<px:PXFormView Width="100%" runat="server" ID="CstFormView20" DataMember="MasterView">
 						<Template>
-							<px:PXTextEdit runat="server" ID="CstPXTextEdit21" DataField="AnalysisText" ></px:PXTextEdit></Template></px:PXFormView></Template></px:PXTabItem>
+							<px:PXTextEdit Height="250px" Width="100%" TextMode="MultiLine" runat="server" ID="CstPXTextEdit21" DataField="AnalysisText" ></px:PXTextEdit></Template></px:PXFormView></Template></px:PXTabItem>
 			<px:PXTabItem Text="Sentiment">
 				<Template>
 					<px:PXFormView runat="server" ID="CstFormView22" DataMember="MasterView" >
