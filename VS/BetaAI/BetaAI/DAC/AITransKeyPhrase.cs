@@ -11,7 +11,8 @@ namespace BetaAI
     [PXDBString(15, IsUnicode = true, InputMask = "")]
     [PXUIField(DisplayName = "Trans Nbr")]
         [PXDefault(typeof(AITrans.transNbr))]
-        public virtual string TransNbr { get; set; }
+        [PXParent(typeof(Select<AITrans,Where<AITrans.transNbr,Equal<AITransKeyPhrase.transNbr>>>))]
+                public virtual string TransNbr { get; set; }
     public abstract class transNbr : PX.Data.BQL.BqlString.Field<transNbr> { }
     #endregion
 
