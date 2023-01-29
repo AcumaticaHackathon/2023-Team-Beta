@@ -9,6 +9,8 @@ namespace BetaAI
     {
 
 
+        public PXSetup<AINumberingSequence> AISetup;
+
         public SelectFrom<AITrans>.View MasterView;
         public SelectFrom<AITransEntityLink>
             .Where<AITransEntityLink.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View EntityLink;

@@ -14,7 +14,8 @@ namespace BetaAI
     public class AIEmailProcess : PXGraph<AIEmailProcess>
     {
         public PXCancel<SMEmail> Cancel;
-        public PXProcessing<SMEmail, Where<SMEmailExt.usrEvaluated, Equal<False>>> EmailsToProcess;
+        public PXProcessing<SMEmail, Where<SMEmailExt.usrEvaluated, IsNull,
+            Or<SMEmailExt.usrEvaluated,Equal<False>>>>  EmailsToProcess;
 
         public AIEmailProcess()
         {
@@ -50,9 +51,12 @@ namespace BetaAI
 
                     POOrder order = (POOrder)res;
 
+                    //t.TransNbr = "12345";
                     t.RefType = "PO";
+                    //t.RefNbr = order.OrderNbr;
                     t.RefNbr = order.OrderNbr;
                     t.SubRefType = "Purchase Order Update";
+                    t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
 
                 }
@@ -64,9 +68,11 @@ namespace BetaAI
                         .Where<CRActivity.noteID.IsEqual<@P.AsGuid>>.View.Select(graph, mail.RefNoteID);
 
                     CRCase crmCase = (CRCase)res;
+                    //t.TransNbr = "12346";
                     t.RefType = "CM";
                     t.RefNbr = crmCase.CaseCD;
                     t.SubRefType = "Case Analysis";
+                    t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
 
                 }
