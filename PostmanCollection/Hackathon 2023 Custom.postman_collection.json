@@ -1,0 +1,899 @@
+{
+	"info": {
+		"_postman_id": "d92ee488-7a36-475c-bbf6-13aa00d2fe48",
+		"name": "Hackathon 2023 Custom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5825823"
+	},
+	"item": [
+		{
+			"name": "Initiate Custom Extraction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tasks\": [\r\n        {\r\n            \"kind\": \"CustomEntityRecognition\",\r\n            \"parameters\": {\r\n                \"projectName\": \"Hackathon2023\",\r\n                \"deploymentName\": \"Hackathon2023\",\r\n                \"stringIndexType\": \"TextElement_v8\"\r\n            }\r\n        }\r\n    ],\r\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\r\n    \"analysisInput\": {\r\n        \"documents\": [\r\n            {\r\n                \"id\": \"document_CustomEntityRecognition\",\r\n                \"text\": \"Subject: 485168 - Shipping Information\\r\\nBody: Hello Christopher Dunbar,\\r\\n\\r\\nThis email is to update you on the shipping of your order 485168. Your order will be shipped on Fri, 06 Jan 2023 via FedEx Freight, as per the shipping method selected.\\r\\n\\r\\nPlease let us know if you need any additional information or have any special requests.\\r\\n\\r\\nBest regards,\\r\\nCONXIAN\",\r\n                \"language\": \"EN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						"analyze-text",
+						"jobs"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-10-01-preview"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Order Confirmation Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tasks\": [\r\n        {\r\n            \"kind\": \"CustomEntityRecognition\",\r\n            \"parameters\": {\r\n                \"projectName\": \"Hackathon2023\",\r\n                \"deploymentName\": \"Hackathon2023\",\r\n                \"stringIndexType\": \"TextElement_v8\"\r\n            }\r\n        }\r\n    ],\r\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\r\n    \"analysisInput\": {\r\n        \"documents\": [\r\n            {\r\n                \"id\": \"document_CustomEntityRecognition\",\r\n                \"text\": \"Subject: 259996 - Order Received\\r\\nBody: Dear Chris Hardgrove,\\r\\n\\r\\nThank you for your recent order 259996 amounting to $738.22. We have received your order and it is now being processed.\\r\\n\\r\\nPlease find the shipping information and order summary below for your reference. If you have any questions, feel free to reach out to us.\\r\\n\\r\\nBest regards,\\r\\nARCHCO\",\r\n                \"language\": \"EN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "operation-location",
+							"value": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/46e3cff0-af2a-40e6-b969-ca0e578d3a2e?api-version=2022-10-01-preview"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "328"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "ef2930c5-f740-454c-a394-fd87be1b5e22"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:18:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Order Cancellation Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tasks\": [\r\n        {\r\n            \"kind\": \"CustomEntityRecognition\",\r\n            \"parameters\": {\r\n                \"projectName\": \"Hackathon2023\",\r\n                \"deploymentName\": \"Hackathon2023\",\r\n                \"stringIndexType\": \"TextElement_v8\"\r\n            }\r\n        }\r\n    ],\r\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\r\n    \"analysisInput\": {\r\n        \"documents\": [\r\n            {\r\n                \"id\": \"document_CustomEntityRecognition\",\r\n                \"text\": \"Subject: 433880 - Order Cancelled\\r\\nBody: Hi Chris Hardgrove,\\r\\n\\r\\nThis email is to confirm that we have received and processed your request to cancel order 433880. We apologize for any inconvenience this may have caused.\\r\\n\\r\\nIf you have any questions or concerns, please reach out to us.\\r\\n\\r\\nBest regards,\\r\\nDEMIASPHAL\",\r\n                \"language\": \"EN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "operation-location",
+							"value": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/17b77811-e380-4f34-a69a-39911eaa30a8?api-version=2022-10-01-preview"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "604"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "ed5d5bf6-00dd-401e-a539-c20874e764fd"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:20:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Order Delay Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tasks\": [\r\n        {\r\n            \"kind\": \"CustomEntityRecognition\",\r\n            \"parameters\": {\r\n                \"projectName\": \"Hackathon2023\",\r\n                \"deploymentName\": \"Hackathon2023\",\r\n                \"stringIndexType\": \"TextElement_v8\"\r\n            }\r\n        }\r\n    ],\r\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\r\n    \"analysisInput\": {\r\n        \"documents\": [\r\n            {\r\n                \"id\": \"document_CustomEntityRecognition\",\r\n                \"text\": \"Subject: 756535 - Order Delay\\r\\nBody: Hi Ketan Mandhare,\\r\\n\\r\\nUnfortunately, we have encountered some unexpected issues with your order 756535 and we wanted to inform you that it will be delayed. We are doing everything possible to resolve the situation and get your order to you as soon as possible.\\r\\n\\r\\nWe will keep you updated on the new estimated delivery date. If you have any concerns, please let us know.\\r\\n\\r\\nBest regards,\\r\\nCLEANING\",\r\n                \"language\": \"EN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "operation-location",
+							"value": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/d1b4d4c4-4a33-40e9-9a9d-dda31356a5cd?api-version=2022-10-01-preview"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "466"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "1ea038f9-fc0a-499c-bb2e-c0cd604f243e"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:22:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Payment Received Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tasks\": [\r\n        {\r\n            \"kind\": \"CustomEntityRecognition\",\r\n            \"parameters\": {\r\n                \"projectName\": \"Hackathon2023\",\r\n                \"deploymentName\": \"Hackathon2023\",\r\n                \"stringIndexType\": \"TextElement_v8\"\r\n            }\r\n        }\r\n    ],\r\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\r\n    \"analysisInput\": {\r\n        \"documents\": [\r\n            {\r\n                \"id\": \"document_CustomEntityRecognition\",\r\n                \"text\": \"Subject: 523902 - Payment Received and Invoice\\r\\nBody: Dear Alexander Ignatin,\\r\\n\\r\\nWe are pleased to inform you that we have received payment for your order 523902 in the amount of $738.22.\\r\\n\\r\\nPlease find attached an invoice for your records. If you have any questions or concerns, feel free to reach out to us.\\r\\n\\r\\nBest regards,\\r\\nINDEXILES\",\r\n                \"language\": \"EN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "operation-location",
+							"value": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/32749f58-bf0f-44f1-a9a0-457369bea90a?api-version=2022-10-01-preview"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "461"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "74009882-2377-4c08-85ad-d5141defc25f"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:23:57 GMT"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Shipping Confirmation Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tasks\": [\r\n        {\r\n            \"kind\": \"CustomEntityRecognition\",\r\n            \"parameters\": {\r\n                \"projectName\": \"Hackathon2023\",\r\n                \"deploymentName\": \"Hackathon2023\",\r\n                \"stringIndexType\": \"TextElement_v8\"\r\n            }\r\n        }\r\n    ],\r\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\r\n    \"analysisInput\": {\r\n        \"documents\": [\r\n            {\r\n                \"id\": \"document_CustomEntityRecognition\",\r\n                \"text\": \"Subject: 485168 - Shipping Information\\r\\nBody: Hello Christopher Dunbar,\\r\\n\\r\\nThis email is to update you on the shipping of your order 485168. Your order will be shipped on Fri, 06 Jan 2023 via FedEx Freight, as per the shipping method selected.\\r\\n\\r\\nPlease let us know if you need any additional information or have any special requests.\\r\\n\\r\\nBest regards,\\r\\nCONXIAN\",\r\n                \"language\": \"EN\"\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "operation-location",
+							"value": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/af801995-e04f-4dc4-944a-945a16de16ad?api-version=2022-10-01-preview"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "302"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "7347eb53-a743-46a0-93a5-804c4d8886f9"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:26:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "View Extraction Results",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/690da49b-4295-4462-8c8c-406b063f5fe3?api-version=2022-10-01-preview",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						"analyze-text",
+						"jobs",
+						"690da49b-4295-4462-8c8c-406b063f5fe3"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-10-01-preview"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Order Confirmation Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/46e3cff0-af2a-40e6-b969-ca0e578d3a2e?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs",
+								"46e3cff0-af2a-40e6-b969-ca0e578d3a2e"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1155"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "30"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "e6609d04-a08c-4b3b-add2-212563a4ace0"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:19:03 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jobId\": \"46e3cff0-af2a-40e6-b969-ca0e578d3a2e\",\n    \"lastUpdatedDateTime\": \"2023-01-29T00:18:56Z\",\n    \"createdDateTime\": \"2023-01-29T00:18:55Z\",\n    \"expirationDateTime\": \"2023-01-30T00:18:55Z\",\n    \"status\": \"succeeded\",\n    \"errors\": [],\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\n    \"tasks\": {\n        \"completed\": 1,\n        \"failed\": 0,\n        \"inProgress\": 0,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"kind\": \"CustomEntityRecognitionLROResults\",\n                \"lastUpdateDateTime\": \"2023-01-29T00:18:56.5856514Z\",\n                \"status\": \"succeeded\",\n                \"results\": {\n                    \"documents\": [\n                        {\n                            \"id\": \"document_CustomEntityRecognition\",\n                            \"entities\": [\n                                {\n                                    \"text\": \"259996\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 9,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"Order Received\",\n                                    \"category\": \"confirmation\",\n                                    \"offset\": 18,\n                                    \"length\": 14,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"Chris Hardgrove\",\n                                    \"category\": \"user\",\n                                    \"offset\": 45,\n                                    \"length\": 15,\n                                    \"confidenceScore\": 0.99\n                                },\n                                {\n                                    \"text\": \"259996\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 97,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 0.99\n                                },\n                                {\n                                    \"text\": \"738.22\",\n                                    \"category\": \"total\",\n                                    \"offset\": 118,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"ARCHCO\",\n                                    \"category\": \"vendorId\",\n                                    \"offset\": 344,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 1\n                                }\n                            ],\n                            \"warnings\": []\n                        }\n                    ],\n                    \"errors\": [],\n                    \"projectName\": \"Hackathon2023\",\n                    \"deploymentName\": \"Hackathon2023\"\n                }\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Order Cancellation Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/17b77811-e380-4f34-a69a-39911eaa30a8?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs",
+								"17b77811-e380-4f34-a69a-39911eaa30a8"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1178"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "39"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "664d8786-cee9-4e49-b473-c63c48076a52"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:21:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jobId\": \"17b77811-e380-4f34-a69a-39911eaa30a8\",\n    \"lastUpdatedDateTime\": \"2023-01-29T00:20:55Z\",\n    \"createdDateTime\": \"2023-01-29T00:20:50Z\",\n    \"expirationDateTime\": \"2023-01-30T00:20:50Z\",\n    \"status\": \"succeeded\",\n    \"errors\": [],\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\n    \"tasks\": {\n        \"completed\": 1,\n        \"failed\": 0,\n        \"inProgress\": 0,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"kind\": \"CustomEntityRecognitionLROResults\",\n                \"lastUpdateDateTime\": \"2023-01-29T00:20:55.8122843Z\",\n                \"status\": \"succeeded\",\n                \"results\": {\n                    \"documents\": [\n                        {\n                            \"id\": \"document_CustomEntityRecognition\",\n                            \"entities\": [\n                                {\n                                    \"text\": \"433880\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 9,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 0.98\n                                },\n                                {\n                                    \"text\": \"Order Cancelled\",\n                                    \"category\": \"cancellation\",\n                                    \"offset\": 18,\n                                    \"length\": 15,\n                                    \"confidenceScore\": 0.98\n                                },\n                                {\n                                    \"text\": \"Chris Hardgrove\",\n                                    \"category\": \"user\",\n                                    \"offset\": 44,\n                                    \"length\": 15,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"cancel order\",\n                                    \"category\": \"cancellation\",\n                                    \"offset\": 141,\n                                    \"length\": 12,\n                                    \"confidenceScore\": 0.95\n                                },\n                                {\n                                    \"text\": \"433880\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 154,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 0.62\n                                },\n                                {\n                                    \"text\": \"DEMIASPHAL\",\n                                    \"category\": \"vendorId\",\n                                    \"offset\": 303,\n                                    \"length\": 10,\n                                    \"confidenceScore\": 1\n                                }\n                            ],\n                            \"warnings\": []\n                        }\n                    ],\n                    \"errors\": [],\n                    \"projectName\": \"Hackathon2023\",\n                    \"deploymentName\": \"Hackathon2023\"\n                }\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Order Delay Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/d1b4d4c4-4a33-40e9-9a9d-dda31356a5cd?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs",
+								"d1b4d4c4-4a33-40e9-9a9d-dda31356a5cd"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1278"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "31"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "99db092e-c460-4b51-8191-74fe24a86dd4"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:22:42 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jobId\": \"d1b4d4c4-4a33-40e9-9a9d-dda31356a5cd\",\n    \"lastUpdatedDateTime\": \"2023-01-29T00:22:17Z\",\n    \"createdDateTime\": \"2023-01-29T00:22:12Z\",\n    \"expirationDateTime\": \"2023-01-30T00:22:12Z\",\n    \"status\": \"succeeded\",\n    \"errors\": [],\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\n    \"tasks\": {\n        \"completed\": 1,\n        \"failed\": 0,\n        \"inProgress\": 0,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"kind\": \"CustomEntityRecognitionLROResults\",\n                \"lastUpdateDateTime\": \"2023-01-29T00:22:17.4154675Z\",\n                \"status\": \"succeeded\",\n                \"results\": {\n                    \"documents\": [\n                        {\n                            \"id\": \"document_CustomEntityRecognition\",\n                            \"entities\": [\n                                {\n                                    \"text\": \"756535\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 9,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"Order Delay\",\n                                    \"category\": \"delay\",\n                                    \"offset\": 18,\n                                    \"length\": 11,\n                                    \"confidenceScore\": 0.99\n                                },\n                                {\n                                    \"text\": \"Ketan Mandhare\",\n                                    \"category\": \"user\",\n                                    \"offset\": 40,\n                                    \"length\": 14,\n                                    \"confidenceScore\": 0.92\n                                },\n                                {\n                                    \"text\": \"we have encountered some\",\n                                    \"category\": \"delay\",\n                                    \"offset\": 74,\n                                    \"length\": 24,\n                                    \"confidenceScore\": 0.67\n                                },\n                                {\n                                    \"text\": \"unexpected issues with your order\",\n                                    \"category\": \"delay\",\n                                    \"offset\": 99,\n                                    \"length\": 33,\n                                    \"confidenceScore\": 0.92\n                                },\n                                {\n                                    \"text\": \"756535\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 133,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 0.92\n                                },\n                                {\n                                    \"text\": \"CLEANING\",\n                                    \"category\": \"vendorId\",\n                                    \"offset\": 426,\n                                    \"length\": 8,\n                                    \"confidenceScore\": 1\n                                }\n                            ],\n                            \"warnings\": []\n                        }\n                    ],\n                    \"errors\": [],\n                    \"projectName\": \"Hackathon2023\",\n                    \"deploymentName\": \"Hackathon2023\"\n                }\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Payment Received Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/32749f58-bf0f-44f1-a9a0-457369bea90a?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs",
+								"32749f58-bf0f-44f1-a9a0-457369bea90a"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1143"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "28"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "e7cc1b5d-c6d0-4c86-a4cb-7423f2e6ea3d"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:24:25 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jobId\": \"32749f58-bf0f-44f1-a9a0-457369bea90a\",\n    \"lastUpdatedDateTime\": \"2023-01-29T00:23:58Z\",\n    \"createdDateTime\": \"2023-01-29T00:23:57Z\",\n    \"expirationDateTime\": \"2023-01-30T00:23:57Z\",\n    \"status\": \"succeeded\",\n    \"errors\": [],\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\n    \"tasks\": {\n        \"completed\": 1,\n        \"failed\": 0,\n        \"inProgress\": 0,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"kind\": \"CustomEntityRecognitionLROResults\",\n                \"lastUpdateDateTime\": \"2023-01-29T00:23:58.7210829Z\",\n                \"status\": \"succeeded\",\n                \"results\": {\n                    \"documents\": [\n                        {\n                            \"id\": \"document_CustomEntityRecognition\",\n                            \"entities\": [\n                                {\n                                    \"text\": \"523902\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 9,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"Payment Received and Invoice\",\n                                    \"category\": \"invoice\",\n                                    \"offset\": 18,\n                                    \"length\": 28,\n                                    \"confidenceScore\": 0.93\n                                },\n                                {\n                                    \"text\": \"We are pleased to inform you that we have received payment for your order\",\n                                    \"category\": \"invoice\",\n                                    \"offset\": 81,\n                                    \"length\": 73,\n                                    \"confidenceScore\": 0.98\n                                },\n                                {\n                                    \"text\": \"738.22\",\n                                    \"category\": \"total\",\n                                    \"offset\": 180,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"INDEXILES\",\n                                    \"category\": \"vendorId\",\n                                    \"offset\": 328,\n                                    \"length\": 9,\n                                    \"confidenceScore\": 1\n                                }\n                            ],\n                            \"warnings\": []\n                        }\n                    ],\n                    \"errors\": [],\n                    \"projectName\": \"Hackathon2023\",\n                    \"deploymentName\": \"Hackathon2023\"\n                }\n            }\n        ]\n    }\n}"
+				},
+				{
+					"name": "Shipping Confirmation Example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/analyze-text/jobs/af801995-e04f-4dc4-944a-945a16de16ad?api-version=2022-10-01-preview",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								"analyze-text",
+								"jobs",
+								"af801995-e04f-4dc4-944a-945a16de16ad"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-10-01-preview"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1324"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "109"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "81940d56-e028-4f4b-82c5-0c478263cde7"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 29 Jan 2023 00:27:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"jobId\": \"af801995-e04f-4dc4-944a-945a16de16ad\",\n    \"lastUpdatedDateTime\": \"2023-01-29T00:26:57Z\",\n    \"createdDateTime\": \"2023-01-29T00:26:56Z\",\n    \"expirationDateTime\": \"2023-01-30T00:26:56Z\",\n    \"status\": \"succeeded\",\n    \"errors\": [],\n    \"displayName\": \"CustomTextPortal_CustomEntityRecognition\",\n    \"tasks\": {\n        \"completed\": 1,\n        \"failed\": 0,\n        \"inProgress\": 0,\n        \"total\": 1,\n        \"items\": [\n            {\n                \"kind\": \"CustomEntityRecognitionLROResults\",\n                \"lastUpdateDateTime\": \"2023-01-29T00:26:57.7201011Z\",\n                \"status\": \"succeeded\",\n                \"results\": {\n                    \"documents\": [\n                        {\n                            \"id\": \"document_CustomEntityRecognition\",\n                            \"entities\": [\n                                {\n                                    \"text\": \"485168\",\n                                    \"category\": \"orderNbr\",\n                                    \"offset\": 9,\n                                    \"length\": 6,\n                                    \"confidenceScore\": 0.99\n                                },\n                                {\n                                    \"text\": \"Shipping Information\",\n                                    \"category\": \"shipping\",\n                                    \"offset\": 18,\n                                    \"length\": 20,\n                                    \"confidenceScore\": 0.99\n                                },\n                                {\n                                    \"text\": \"Christopher Dunbar\",\n                                    \"category\": \"user\",\n                                    \"offset\": 52,\n                                    \"length\": 18,\n                                    \"confidenceScore\": 1\n                                },\n                                {\n                                    \"text\": \"This email is to update you on the shipping of your order\",\n                                    \"category\": \"shipping\",\n                                    \"offset\": 75,\n                                    \"length\": 57,\n                                    \"confidenceScore\": 0.98\n                                },\n                                {\n                                    \"text\": \"Fri, 06 Jan 2023\",\n                                    \"category\": \"shipDate\",\n                                    \"offset\": 171,\n                                    \"length\": 16,\n                                    \"confidenceScore\": 0.86\n                                },\n                                {\n                                    \"text\": \"FedEx Freight\",\n                                    \"category\": \"shipVia\",\n                                    \"offset\": 192,\n                                    \"length\": 13,\n                                    \"confidenceScore\": 0.99\n                                },\n                                {\n                                    \"text\": \"CONXIAN\",\n                                    \"category\": \"vendorId\",\n                                    \"offset\": 353,\n                                    \"length\": 7,\n                                    \"confidenceScore\": 0.99\n                                }\n                            ],\n                            \"warnings\": []\n                        }\n                    ],\n                    \"errors\": [],\n                    \"projectName\": \"Hackathon2023\",\n                    \"deploymentName\": \"Hackathon2023\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "a8b600bdf9a943e9a0ef99ddc6f83398",
+			"type": "default"
+		}
+	]
+}

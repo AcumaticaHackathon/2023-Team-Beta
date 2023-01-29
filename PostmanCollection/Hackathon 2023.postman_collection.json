@@ -1,0 +1,806 @@
+{
+	"info": {
+		"_postman_id": "894dfa5e-ee87-4908-945e-57759f7e2525",
+		"name": "Hackathon 2023",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5825823"
+	},
+	"item": [
+		{
+			"name": "Key Phrase Extraction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"kind\": \"KeyPhraseExtraction\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"As discussed, 1. We have changed the name of branches. a. \\\"production-upgrade-244\\\" to \\\"uat-branch\\\". This branch points to UAT Instance. b. \\\"master_244\\\" to \\\"production-branch\\\". This branch points to Production instance. c. using the branch \\\"test-branch\\\" for test instance. 2. We are using separate \\\"release branch\\\" for every production deployment. 3. This \\\"release branch\\\" is merged into \\\"production-branch\\\". Untracked Files: As of now, we do not have any untracked files on TEST / UAT / Prod.\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Please find the following recording to the deployment process meeting (let me know if you have any access issues). A major takeaway from the meeting is the requirement for Kensium to follow the process flow on the below diagram when deploying to environments. An important emphasis on not directly updating files on the server.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						":analyze-text"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-05-01"
+						},
+						{
+							"key": "showStats",
+							"value": "true"
+						}
+					],
+					"variable": [
+						{
+							"key": "analyze-text",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"kind\": \"KeyPhraseExtraction\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"As discussed, 1. We have changed the name of branches. a. \\\"production-upgrade-244\\\" to \\\"uat-branch\\\". This branch points to UAT Instance. b. \\\"master_244\\\" to \\\"production-branch\\\". This branch points to Production instance. c. using the branch \\\"test-branch\\\" for test instance. 2. We are using separate \\\"release branch\\\" for every production deployment. 3. This \\\"release branch\\\" is merged into \\\"production-branch\\\". Untracked Files: As of now, we do not have any untracked files on TEST / UAT / Prod.\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Please find the following recording to the deployment process meeting (let me know if you have any access issues). A major takeaway from the meeting is the requirement for Kensium to follow the process flow on the below diagram when deploying to environments. An important emphasis on not directly updating files on the server.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								":analyze-text"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-05-01"
+								},
+								{
+									"key": "showStats",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "analyze-text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "794"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "csp-billing-usage",
+							"value": "CognitiveServices.TextAnalytics.Language.Text.KeyPhraseExtraction=2,CognitiveServices.TextAnalytics.TextRecords=2"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "38"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".AspNetCore.Mvc.CookieTempDataProvider=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax; httponly"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "0bf8ffc9-396c-4244-8941-669d10e28b4e"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Jan 2023 17:04:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"kind\": \"KeyPhraseExtractionResults\",\n    \"results\": {\n        \"statistics\": {\n            \"documentsCount\": 2,\n            \"validDocumentsCount\": 2,\n            \"erroneousDocumentsCount\": 0,\n            \"transactionsCount\": 2\n        },\n        \"documents\": [\n            {\n                \"id\": \"1\",\n                \"keyPhrases\": [\n                    \"separate \\\"release branch\",\n                    \"Untracked Files\",\n                    \"Production instance\",\n                    \"branch \\\"test-branch\",\n                    \"production deployment\",\n                    \"UAT Instance\",\n                    \"test instance\",\n                    \"name\",\n                    \"branches\",\n                    \"upgrade\",\n                    \"production-branch\",\n                    \"c.\"\n                ],\n                \"statistics\": {\n                    \"charactersCount\": 492,\n                    \"transactionsCount\": 1\n                },\n                \"warnings\": []\n            },\n            {\n                \"id\": \"2\",\n                \"keyPhrases\": [\n                    \"deployment process meeting\",\n                    \"process flow\",\n                    \"following recording\",\n                    \"access issues\",\n                    \"major takeaway\",\n                    \"important emphasis\",\n                    \"requirement\",\n                    \"Kensium\",\n                    \"diagram\",\n                    \"environments\",\n                    \"files\",\n                    \"server\"\n                ],\n                \"statistics\": {\n                    \"charactersCount\": 327,\n                    \"transactionsCount\": 1\n                },\n                \"warnings\": []\n            }\n        ],\n        \"errors\": [],\n        \"modelVersion\": \"2022-10-01\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Sentiment Analysis",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"kind\": \"SentimentAnalysis\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Team, If there is a process my team needs to be following when these occur please create a WIKI article and let us know so we can make sure to follow procedure. There is currently no knowledge base article that provides direction for these issues. All we know is to advised Development of the alerts. Thanks.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						":analyze-text"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-05-01"
+						},
+						{
+							"key": "showStats",
+							"value": "true"
+						}
+					],
+					"variable": [
+						{
+							"key": "analyze-text",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"kind\": \"SentimentAnalysis\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Team, If there is a process my team needs to be following when these occur please create a WIKI article and let us know so we can make sure to follow procedure. There is currently no knowledge base article that provides direction for these issues. All we know is to advised Development of the alerts. Thanks.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								":analyze-text"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-05-01"
+								},
+								{
+									"key": "showStats",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "analyze-text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1207"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "csp-billing-usage",
+							"value": "CognitiveServices.TextAnalytics.BatchScoring=1,CognitiveServices.TextAnalytics.TextRecords=1"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "62"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".AspNetCore.Mvc.CookieTempDataProvider=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax; httponly"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "f2b2c83e-a58f-4e5d-be80-e5ec9aa8ffa6"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Jan 2023 17:11:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"kind\": \"SentimentAnalysisResults\",\n    \"results\": {\n        \"statistics\": {\n            \"documentsCount\": 1,\n            \"validDocumentsCount\": 1,\n            \"erroneousDocumentsCount\": 0,\n            \"transactionsCount\": 1\n        },\n        \"documents\": [\n            {\n                \"id\": \"1\",\n                \"sentiment\": \"mixed\",\n                \"statistics\": {\n                    \"charactersCount\": 308,\n                    \"transactionsCount\": 1\n                },\n                \"confidenceScores\": {\n                    \"positive\": 0.46,\n                    \"neutral\": 0.23,\n                    \"negative\": 0.31\n                },\n                \"sentences\": [\n                    {\n                        \"sentiment\": \"neutral\",\n                        \"confidenceScores\": {\n                            \"positive\": 0.1,\n                            \"neutral\": 0.89,\n                            \"negative\": 0\n                        },\n                        \"offset\": 0,\n                        \"length\": 161,\n                        \"text\": \"Team, If there is a process my team needs to be following when these occur please create a WIKI article and let us know so we can make sure to follow procedure. \"\n                    },\n                    {\n                        \"sentiment\": \"negative\",\n                        \"confidenceScores\": {\n                            \"positive\": 0,\n                            \"neutral\": 0.38,\n                            \"negative\": 0.62\n                        },\n                        \"offset\": 161,\n                        \"length\": 87,\n                        \"text\": \"There is currently no knowledge base article that provides direction for these issues. \"\n                    },\n                    {\n                        \"sentiment\": \"neutral\",\n                        \"confidenceScores\": {\n                            \"positive\": 0.41,\n                            \"neutral\": 0.55,\n                            \"negative\": 0.04\n                        },\n                        \"offset\": 248,\n                        \"length\": 53,\n                        \"text\": \"All we know is to advised Development of the alerts. \"\n                    },\n                    {\n                        \"sentiment\": \"positive\",\n                        \"confidenceScores\": {\n                            \"positive\": 0.91,\n                            \"neutral\": 0.09,\n                            \"negative\": 0\n                        },\n                        \"offset\": 301,\n                        \"length\": 7,\n                        \"text\": \"Thanks.\"\n                    }\n                ],\n                \"warnings\": []\n            }\n        ],\n        \"errors\": [],\n        \"modelVersion\": \"2022-11-01\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Entity Recognition",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"kind\": \"EntityRecognition\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Hello, I am currently having some issues trying to place an order on the website. I have tried different browsers, internet providers, both signing in and checking out as a guest, etc but each time it does not let me through to the checkout phase. I was just wondering if there is something specific I need to switch or if I just need to keep trying and see if it changes. I apologize for the confusing question and something that is not the most pressing issue. I understand that there is a high volume of activity and orders on the site currently, so that may be the answer to the question, but I just wanted to check in and see if there was something specific needed in my end. Either way, glad that business is booming for you all right now!\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Hey Team, This seems to be the same issue kensium fixed during the holidays... Did we ever find out what causes this issue?\"\r\n      },\r\n      {\r\n        \"id\": \"3\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Well, I'm not quite sure what's going on here. Could you ask him where exactly he's failing (like when pressing the Submit Order button?) and what's in his cart to see if we can recreate it? I was able to place an order with his account info.  He appears to have placed 2 previous orders, and he's not in a banned area\"\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						":analyze-text"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-05-01"
+						},
+						{
+							"key": "showStats",
+							"value": "true"
+						}
+					],
+					"variable": [
+						{
+							"key": "analyze-text",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"kind\": \"EntityRecognition\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Hello, I am currently having some issues trying to place an order on the website. I have tried different browsers, internet providers, both signing in and checking out as a guest, etc but each time it does not let me through to the checkout phase. I was just wondering if there is something specific I need to switch or if I just need to keep trying and see if it changes. I apologize for the confusing question and something that is not the most pressing issue. I understand that there is a high volume of activity and orders on the site currently, so that may be the answer to the question, but I just wanted to check in and see if there was something specific needed in my end. Either way, glad that business is booming for you all right now!\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Hey Team, This seems to be the same issue kensium fixed during the holidays... Did we ever find out what causes this issue?\"\r\n      },\r\n      {\r\n        \"id\": \"3\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Well, I'm not quite sure what's going on here. Could you ask him where exactly he's failing (like when pressing the Submit Order button?) and what's in his cart to see if we can recreate it? I was able to place an order with his account info.  He appears to have placed 2 previous orders, and he's not in a banned area\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								":analyze-text"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-05-01"
+								},
+								{
+									"key": "showStats",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "analyze-text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "1035"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "csp-billing-usage",
+							"value": "CognitiveServices.TextAnalytics.Language.Text.NER=3,CognitiveServices.TextAnalytics.TextRecords=3"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "67"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".AspNetCore.Mvc.CookieTempDataProvider=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax; httponly"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "0a15e694-5c2f-4b4c-943c-697b03338d4c"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Jan 2023 16:49:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"kind\": \"EntityRecognitionResults\",\n    \"results\": {\n        \"statistics\": {\n            \"documentsCount\": 3,\n            \"validDocumentsCount\": 3,\n            \"erroneousDocumentsCount\": 0,\n            \"transactionsCount\": 3\n        },\n        \"documents\": [\n            {\n                \"id\": \"1\",\n                \"statistics\": {\n                    \"charactersCount\": 745,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"text\": \"guest\",\n                        \"category\": \"PersonType\",\n                        \"offset\": 173,\n                        \"length\": 5,\n                        \"confidenceScore\": 0.97\n                    },\n                    {\n                        \"text\": \"business\",\n                        \"category\": \"Skill\",\n                        \"offset\": 703,\n                        \"length\": 8,\n                        \"confidenceScore\": 0.8\n                    },\n                    {\n                        \"text\": \"right now\",\n                        \"category\": \"DateTime\",\n                        \"offset\": 735,\n                        \"length\": 9,\n                        \"confidenceScore\": 0.8\n                    }\n                ],\n                \"warnings\": []\n            },\n            {\n                \"id\": \"2\",\n                \"statistics\": {\n                    \"charactersCount\": 123,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"text\": \"holidays\",\n                        \"category\": \"Event\",\n                        \"offset\": 67,\n                        \"length\": 8,\n                        \"confidenceScore\": 0.46\n                    }\n                ],\n                \"warnings\": []\n            },\n            {\n                \"id\": \"3\",\n                \"statistics\": {\n                    \"charactersCount\": 318,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"text\": \"cart\",\n                        \"category\": \"Product\",\n                        \"offset\": 156,\n                        \"length\": 4,\n                        \"confidenceScore\": 0.85\n                    },\n                    {\n                        \"text\": \"2\",\n                        \"category\": \"Quantity\",\n                        \"subcategory\": \"Number\",\n                        \"offset\": 270,\n                        \"length\": 1,\n                        \"confidenceScore\": 0.8\n                    }\n                ],\n                \"warnings\": []\n            }\n        ],\n        \"errors\": [],\n        \"modelVersion\": \"2021-06-01\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Entity Linking",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"kind\": \"EntityLinking\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Do you guys want to reconvene over the weekend?We could brainstorme one or two solid use cases and deliver on those. Im thinking either a chat bot in an IM service like Teams that when askes whats the status of my order ABC123 or Can you send me a trial balance statement. It will respond. Or have something where Acumatica sends an email to a vendor saying what the status of Purchase order ABC123 and we process the response of the email via LUIS and update the PO record accordingly. I do have some commitments from 10am to 12pm MST Saturday. We could aim for Sunday to have a little extra study time on the subject.\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Project Title: Specialized Sales Order Quote Request using AI/ML.  Project Overview: Provides a quick and easy way for the customers of vendors armed with Acumatica to request sales order quotes. When implemented, a customer can email the address set up in Acumatica asking for a quote for any number of items as if they were emailing a customer sales representative. This email will be processed by Acumatica, the body will be sent to Microsoft’s LUIS natural language processor, LUIS will decide if the email is an order, and transform the request into an intent. This data will be returned to Acumatica, where a sales order quote will be generated and an email sent to the customer with a PDF sales order quote attached.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						":analyze-text"
+					],
+					"query": [
+						{
+							"key": "api-version",
+							"value": "2022-05-01"
+						},
+						{
+							"key": "showStats",
+							"value": "true"
+						}
+					],
+					"variable": [
+						{
+							"key": "analyze-text",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"kind\": \"EntityLinking\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Do you guys want to reconvene over the weekend?We could brainstorme one or two solid use cases and deliver on those. Im thinking either a chat bot in an IM service like Teams that when askes whats the status of my order ABC123 or Can you send me a trial balance statement. It will respond. Or have something where Acumatica sends an email to a vendor saying what the status of Purchase order ABC123 and we process the response of the email via LUIS and update the PO record accordingly. I do have some commitments from 10am to 12pm MST Saturday. We could aim for Sunday to have a little extra study time on the subject.\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Project Title: Specialized Sales Order Quote Request using AI/ML.  Project Overview: Provides a quick and easy way for the customers of vendors armed with Acumatica to request sales order quotes. When implemented, a customer can email the address set up in Acumatica asking for a quote for any number of items as if they were emailing a customer sales representative. This email will be processed by Acumatica, the body will be sent to Microsoft’s LUIS natural language processor, LUIS will decide if the email is an order, and transform the request into an intent. This data will be returned to Acumatica, where a sales order quote will be generated and an email sent to the customer with a PDF sales order quote attached.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								":analyze-text"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-05-01"
+								},
+								{
+									"key": "showStats",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "analyze-text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "5303"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "csp-billing-usage",
+							"value": "CognitiveServices.TextAnalytics.Language.Text.EntityLinking=2,CognitiveServices.TextAnalytics.TextRecords=2"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "39"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".AspNetCore.Mvc.CookieTempDataProvider=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax; httponly"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "60c50cfe-d917-4c67-b04b-8bb3458b6d5f"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Jan 2023 16:39:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"kind\": \"EntityLinkingResults\",\n    \"results\": {\n        \"statistics\": {\n            \"documentsCount\": 2,\n            \"validDocumentsCount\": 2,\n            \"erroneousDocumentsCount\": 0,\n            \"transactionsCount\": 2\n        },\n        \"documents\": [\n            {\n                \"id\": \"1\",\n                \"statistics\": {\n                    \"charactersCount\": 619,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"bingId\": \"9f12c388-7845-24b8-a173-5d549d404722\",\n                        \"name\": \"Instant messaging\",\n                        \"matches\": [\n                            {\n                                \"text\": \"IM\",\n                                \"offset\": 153,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.22\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Instant messaging\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Instant_messaging\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"8c5fbd58-0ac0-4d1a-f5ea-585cdda89eda\",\n                        \"name\": \"ABC (The Jackson 5 song)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"ABC123\",\n                                \"offset\": 392,\n                                \"length\": 6,\n                                \"confidenceScore\": 0.67\n                            },\n                            {\n                                \"text\": \"ABC123\",\n                                \"offset\": 220,\n                                \"length\": 6,\n                                \"confidenceScore\": 0.67\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"ABC (The Jackson 5 song)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/ABC_(The_Jackson_5_song)\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"922c109f-4295-a56a-b691-52d7e72d23a3\",\n                        \"name\": \"Acumatica\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 314,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.71\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Acumatica\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Acumatica\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"443d3520-61e3-06f5-780d-c68f7f4fa754\",\n                        \"name\": \"Purchase order\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Purchase order\",\n                                \"offset\": 377,\n                                \"length\": 14,\n                                \"confidenceScore\": 0.73\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Purchase order\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Purchase_order\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"9e917e65-c588-a0b7-f336-52fc6b5b2052\",\n                        \"name\": \"Portugal\",\n                        \"matches\": [\n                            {\n                                \"text\": \"PO\",\n                                \"offset\": 464,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.05\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Portugal\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Portugal\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"e5ecdf14-f19b-1379-b177-8208be86a10b\",\n                        \"name\": \"Mountain Time Zone\",\n                        \"matches\": [\n                            {\n                                \"text\": \"MST\",\n                                \"offset\": 532,\n                                \"length\": 3,\n                                \"confidenceScore\": 0.03\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Mountain Time Zone\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Mountain_Time_Zone\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"296617ab-4ddb-cc10-beba-56e0f42af76b\",\n                        \"name\": \"Saturday\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Saturday\",\n                                \"offset\": 536,\n                                \"length\": 8,\n                                \"confidenceScore\": 0.04\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Saturday\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Saturday\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"16b00425-0976-5ec0-d158-5ad79dccf626\",\n                        \"name\": \"Sunday (Australian TV program)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Sunday\",\n                                \"offset\": 563,\n                                \"length\": 6,\n                                \"confidenceScore\": 0.03\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Sunday (Australian TV program)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Sunday_(Australian_TV_program)\",\n                        \"dataSource\": \"Wikipedia\"\n                    }\n                ],\n                \"warnings\": []\n            },\n            {\n                \"id\": \"2\",\n                \"statistics\": {\n                    \"charactersCount\": 723,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"bingId\": \"3a1f52ae-a5e1-7b12-343a-56d4a990f329\",\n                        \"name\": \"Microsoft Project\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Project\",\n                                \"offset\": 0,\n                                \"length\": 7,\n                                \"confidenceScore\": 0.1\n                            },\n                            {\n                                \"text\": \"Project\",\n                                \"offset\": 67,\n                                \"length\": 7,\n                                \"confidenceScore\": 0.1\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Microsoft Project\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Microsoft_Project\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"6844f19e-16fe-6677-f201-1a82cb5a2967\",\n                        \"name\": \"Title (command)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Title\",\n                                \"offset\": 8,\n                                \"length\": 5,\n                                \"confidenceScore\": 0.12\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Title (command)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Title_(command)\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"a119f86b-1cd4-ad5e-ccdd-ac6f24e1715a\",\n                        \"name\": \"Sales order\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Sales Order\",\n                                \"offset\": 27,\n                                \"length\": 11,\n                                \"confidenceScore\": 0.73\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Sales order\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Sales_order\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"7efccdf0-34b9-58b5-5106-e87de99bec0f\",\n                        \"name\": \"Sales quote\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Quote\",\n                                \"offset\": 39,\n                                \"length\": 5,\n                                \"confidenceScore\": 0\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Sales quote\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Sales_quote\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"9d99fb44-edac-0e03-1579-19d8d8591a49\",\n                        \"name\": \"Artificial intelligence\",\n                        \"matches\": [\n                            {\n                                \"text\": \"AI\",\n                                \"offset\": 59,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.26\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Artificial intelligence\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Artificial_intelligence\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"3930ae12-d61e-b903-0cb1-733274cd90ba\",\n                        \"name\": \"ML (programming language)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"ML\",\n                                \"offset\": 62,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.01\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"ML (programming language)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/ML_(programming_language)\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"922c109f-4295-a56a-b691-52d7e72d23a3\",\n                        \"name\": \"Acumatica\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 400,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.87\n                            },\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 257,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.85\n                            },\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 155,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.87\n                            },\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 596,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.85\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Acumatica\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Acumatica\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85\",\n                        \"name\": \"Microsoft\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Microsoft\",\n                                \"offset\": 436,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.19\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Microsoft\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Microsoft\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"3e327514-0194-1a24-43bc-f4eb13106034\",\n                        \"name\": \"PDF\",\n                        \"matches\": [\n                            {\n                                \"text\": \"PDF\",\n                                \"offset\": 692,\n                                \"length\": 3,\n                                \"confidenceScore\": 0.25\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"PDF\",\n                        \"url\": \"https://en.wikipedia.org/wiki/PDF\",\n                        \"dataSource\": \"Wikipedia\"\n                    }\n                ],\n                \"warnings\": []\n            }\n        ],\n        \"errors\": [],\n        \"modelVersion\": \"2021-06-01\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Ocp-Apim-Subscription-Key",
+						"value": "{{token}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"top\":3,\r\n   \"question\":\"replace battery parts\",\r\n   \"includeUnstructuredSources\":true,\r\n   \"confidenceScoreThreshold\":\"0.1\",\r\n   \"answerSpanRequest\":{\r\n      \"enable\":true,\r\n      \"topAnswersWithSpan\":1,\r\n      \"confidenceScoreThreshold\":\"0.1\"\r\n   }\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:query-knowledgebases?projectName=hackathon2023betaquestion&api-version=2021-10-01&deploymentName=production",
+					"protocol": "https",
+					"host": [
+						"hack2023beta",
+						"cognitiveservices",
+						"azure",
+						"com"
+					],
+					"path": [
+						"language",
+						":query-knowledgebases"
+					],
+					"query": [
+						{
+							"key": "projectName",
+							"value": "hackathon2023betaquestion"
+						},
+						{
+							"key": "api-version",
+							"value": "2021-10-01"
+						},
+						{
+							"key": "deploymentName",
+							"value": "production"
+						}
+					],
+					"variable": [
+						{
+							"key": "query-knowledgebases",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Ocp-Apim-Subscription-Key",
+								"value": "{{token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"kind\": \"EntityLinking\",\r\n  \"parameters\": {\r\n    \"modelVersion\": \"latest\"\r\n  },\r\n  \"analysisInput\": {\r\n    \"documents\": [\r\n      {\r\n        \"id\": \"1\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Do you guys want to reconvene over the weekend?We could brainstorme one or two solid use cases and deliver on those. Im thinking either a chat bot in an IM service like Teams that when askes whats the status of my order ABC123 or Can you send me a trial balance statement. It will respond. Or have something where Acumatica sends an email to a vendor saying what the status of Purchase order ABC123 and we process the response of the email via LUIS and update the PO record accordingly. I do have some commitments from 10am to 12pm MST Saturday. We could aim for Sunday to have a little extra study time on the subject.\"\r\n      },\r\n      {\r\n        \"id\": \"2\",\r\n        \"language\": \"en\",\r\n        \"text\": \"Project Title: Specialized Sales Order Quote Request using AI/ML.  Project Overview: Provides a quick and easy way for the customers of vendors armed with Acumatica to request sales order quotes. When implemented, a customer can email the address set up in Acumatica asking for a quote for any number of items as if they were emailing a customer sales representative. This email will be processed by Acumatica, the body will be sent to Microsoft’s LUIS natural language processor, LUIS will decide if the email is an order, and transform the request into an intent. This data will be returned to Acumatica, where a sales order quote will be generated and an email sent to the customer with a PDF sales order quote attached.\"\r\n      }\r\n    ]\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://hack2023beta.cognitiveservices.azure.com/language/:analyze-text?api-version=2022-05-01&showStats=true",
+							"protocol": "https",
+							"host": [
+								"hack2023beta",
+								"cognitiveservices",
+								"azure",
+								"com"
+							],
+							"path": [
+								"language",
+								":analyze-text"
+							],
+							"query": [
+								{
+									"key": "api-version",
+									"value": "2022-05-01"
+								},
+								{
+									"key": "showStats",
+									"value": "true"
+								}
+							],
+							"variable": [
+								{
+									"key": "analyze-text",
+									"value": ""
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "5303"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "csp-billing-usage",
+							"value": "CognitiveServices.TextAnalytics.Language.Text.EntityLinking=2,CognitiveServices.TextAnalytics.TextRecords=2"
+						},
+						{
+							"key": "x-envoy-upstream-service-time",
+							"value": "39"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": ".AspNetCore.Mvc.CookieTempDataProvider=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax; httponly"
+						},
+						{
+							"key": "apim-request-id",
+							"value": "60c50cfe-d917-4c67-b04b-8bb3458b6d5f"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000; includeSubDomains; preload"
+						},
+						{
+							"key": "x-content-type-options",
+							"value": "nosniff"
+						},
+						{
+							"key": "x-ms-region",
+							"value": "East US"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 23 Jan 2023 16:39:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"kind\": \"EntityLinkingResults\",\n    \"results\": {\n        \"statistics\": {\n            \"documentsCount\": 2,\n            \"validDocumentsCount\": 2,\n            \"erroneousDocumentsCount\": 0,\n            \"transactionsCount\": 2\n        },\n        \"documents\": [\n            {\n                \"id\": \"1\",\n                \"statistics\": {\n                    \"charactersCount\": 619,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"bingId\": \"9f12c388-7845-24b8-a173-5d549d404722\",\n                        \"name\": \"Instant messaging\",\n                        \"matches\": [\n                            {\n                                \"text\": \"IM\",\n                                \"offset\": 153,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.22\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Instant messaging\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Instant_messaging\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"8c5fbd58-0ac0-4d1a-f5ea-585cdda89eda\",\n                        \"name\": \"ABC (The Jackson 5 song)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"ABC123\",\n                                \"offset\": 392,\n                                \"length\": 6,\n                                \"confidenceScore\": 0.67\n                            },\n                            {\n                                \"text\": \"ABC123\",\n                                \"offset\": 220,\n                                \"length\": 6,\n                                \"confidenceScore\": 0.67\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"ABC (The Jackson 5 song)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/ABC_(The_Jackson_5_song)\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"922c109f-4295-a56a-b691-52d7e72d23a3\",\n                        \"name\": \"Acumatica\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 314,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.71\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Acumatica\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Acumatica\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"443d3520-61e3-06f5-780d-c68f7f4fa754\",\n                        \"name\": \"Purchase order\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Purchase order\",\n                                \"offset\": 377,\n                                \"length\": 14,\n                                \"confidenceScore\": 0.73\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Purchase order\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Purchase_order\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"9e917e65-c588-a0b7-f336-52fc6b5b2052\",\n                        \"name\": \"Portugal\",\n                        \"matches\": [\n                            {\n                                \"text\": \"PO\",\n                                \"offset\": 464,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.05\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Portugal\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Portugal\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"e5ecdf14-f19b-1379-b177-8208be86a10b\",\n                        \"name\": \"Mountain Time Zone\",\n                        \"matches\": [\n                            {\n                                \"text\": \"MST\",\n                                \"offset\": 532,\n                                \"length\": 3,\n                                \"confidenceScore\": 0.03\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Mountain Time Zone\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Mountain_Time_Zone\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"296617ab-4ddb-cc10-beba-56e0f42af76b\",\n                        \"name\": \"Saturday\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Saturday\",\n                                \"offset\": 536,\n                                \"length\": 8,\n                                \"confidenceScore\": 0.04\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Saturday\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Saturday\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"16b00425-0976-5ec0-d158-5ad79dccf626\",\n                        \"name\": \"Sunday (Australian TV program)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Sunday\",\n                                \"offset\": 563,\n                                \"length\": 6,\n                                \"confidenceScore\": 0.03\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Sunday (Australian TV program)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Sunday_(Australian_TV_program)\",\n                        \"dataSource\": \"Wikipedia\"\n                    }\n                ],\n                \"warnings\": []\n            },\n            {\n                \"id\": \"2\",\n                \"statistics\": {\n                    \"charactersCount\": 723,\n                    \"transactionsCount\": 1\n                },\n                \"entities\": [\n                    {\n                        \"bingId\": \"3a1f52ae-a5e1-7b12-343a-56d4a990f329\",\n                        \"name\": \"Microsoft Project\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Project\",\n                                \"offset\": 0,\n                                \"length\": 7,\n                                \"confidenceScore\": 0.1\n                            },\n                            {\n                                \"text\": \"Project\",\n                                \"offset\": 67,\n                                \"length\": 7,\n                                \"confidenceScore\": 0.1\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Microsoft Project\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Microsoft_Project\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"6844f19e-16fe-6677-f201-1a82cb5a2967\",\n                        \"name\": \"Title (command)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Title\",\n                                \"offset\": 8,\n                                \"length\": 5,\n                                \"confidenceScore\": 0.12\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Title (command)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Title_(command)\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"a119f86b-1cd4-ad5e-ccdd-ac6f24e1715a\",\n                        \"name\": \"Sales order\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Sales Order\",\n                                \"offset\": 27,\n                                \"length\": 11,\n                                \"confidenceScore\": 0.73\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Sales order\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Sales_order\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"7efccdf0-34b9-58b5-5106-e87de99bec0f\",\n                        \"name\": \"Sales quote\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Quote\",\n                                \"offset\": 39,\n                                \"length\": 5,\n                                \"confidenceScore\": 0\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Sales quote\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Sales_quote\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"9d99fb44-edac-0e03-1579-19d8d8591a49\",\n                        \"name\": \"Artificial intelligence\",\n                        \"matches\": [\n                            {\n                                \"text\": \"AI\",\n                                \"offset\": 59,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.26\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Artificial intelligence\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Artificial_intelligence\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"3930ae12-d61e-b903-0cb1-733274cd90ba\",\n                        \"name\": \"ML (programming language)\",\n                        \"matches\": [\n                            {\n                                \"text\": \"ML\",\n                                \"offset\": 62,\n                                \"length\": 2,\n                                \"confidenceScore\": 0.01\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"ML (programming language)\",\n                        \"url\": \"https://en.wikipedia.org/wiki/ML_(programming_language)\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"922c109f-4295-a56a-b691-52d7e72d23a3\",\n                        \"name\": \"Acumatica\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 400,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.87\n                            },\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 257,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.85\n                            },\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 155,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.87\n                            },\n                            {\n                                \"text\": \"Acumatica\",\n                                \"offset\": 596,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.85\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Acumatica\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Acumatica\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85\",\n                        \"name\": \"Microsoft\",\n                        \"matches\": [\n                            {\n                                \"text\": \"Microsoft\",\n                                \"offset\": 436,\n                                \"length\": 9,\n                                \"confidenceScore\": 0.19\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"Microsoft\",\n                        \"url\": \"https://en.wikipedia.org/wiki/Microsoft\",\n                        \"dataSource\": \"Wikipedia\"\n                    },\n                    {\n                        \"bingId\": \"3e327514-0194-1a24-43bc-f4eb13106034\",\n                        \"name\": \"PDF\",\n                        \"matches\": [\n                            {\n                                \"text\": \"PDF\",\n                                \"offset\": 692,\n                                \"length\": 3,\n                                \"confidenceScore\": 0.25\n                            }\n                        ],\n                        \"language\": \"en\",\n                        \"id\": \"PDF\",\n                        \"url\": \"https://en.wikipedia.org/wiki/PDF\",\n                        \"dataSource\": \"Wikipedia\"\n                    }\n                ],\n                \"warnings\": []\n            }\n        ],\n        \"errors\": [],\n        \"modelVersion\": \"2021-06-01\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "a8b600bdf9a943e9a0ef99ddc6f83398",
+			"type": "default"
+		}
+	]
+}
