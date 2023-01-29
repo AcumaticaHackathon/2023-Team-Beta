@@ -70,10 +70,14 @@
   <ItemGroup>
     <Compile Include="AISendRequest.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DAC\AINumberingSequence.cs" />
     <Compile Include="DAC\AITrans.cs" />
     <Compile Include="DAC\AITransEntityLink.cs" />
     <Compile Include="DAC\AITransEntityRecog.cs" />
     <Compile Include="DAC\AITransKeyPhrase.cs" />
+    <Compile Include="DAC\SMEmailExtensions.cs" />
+    <Compile Include="Graphs\AIEmailProcess.cs" />
+    <Compile Include="Graphs\AISetup.cs" />
     <Compile Include="Graphs\AITransMaint.cs" />
     <Compile Include="DAC\AITranSentiment.cs" />
     <Compile Include="Graphs\CRCaseMaintExt.cs" />
