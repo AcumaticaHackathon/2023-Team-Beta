@@ -38,7 +38,7 @@ namespace PX.Objects.CR
                 rec.AnalysisText = reccase.Description;
                 graph.MasterView.Insert(rec);
                 graph.Persist();
-
+                
                 graph.AnalyzeSentiment(rec);
 
             }

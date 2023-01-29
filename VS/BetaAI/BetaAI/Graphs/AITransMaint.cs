@@ -109,6 +109,9 @@ namespace BetaAI
 
             AnalyzeSentiment(rec);
 
+            MasterView.Cache.Update(rec);
+            MasterView.Update(rec);
+
             return adapter.Get();
         }
 
@@ -183,8 +186,8 @@ namespace BetaAI
                 }
             }
 
-            MasterView.Cache.Update(rec);
-            MasterView.Update(rec);
+            //MasterView.Cache.Update(rec);
+            //MasterView.Update(rec);
 
             this.Persist();
 
@@ -205,6 +208,9 @@ namespace BetaAI
             if (rec == null) return null;
 
             AnalyzeEntityLink(rec);
+
+            MasterView.Cache.Update(rec);
+            MasterView.Update(rec);
 
             return adapter.Get();
 
@@ -279,8 +285,8 @@ namespace BetaAI
 
             }
 
-            MasterView.Cache.Update(rec);
-            MasterView.Update(rec);
+            //MasterView.Cache.Update(rec);
+            //MasterView.Update(rec);
 
             this.Persist();
 
@@ -299,6 +305,9 @@ namespace BetaAI
             if (rec == null) return null;
 
             AnalyzeEntityRecog(rec);
+
+            MasterView.Cache.Update(rec);
+            MasterView.Update(rec);
 
             return adapter.Get();
 
@@ -396,8 +405,8 @@ namespace BetaAI
                 }
             }
 
-            MasterView.Cache.Update(rec);
-            MasterView.Update(rec);
+            //MasterView.Cache.Update(rec);
+            //MasterView.Update(rec);
 
             this.Persist();
 
@@ -415,6 +424,9 @@ namespace BetaAI
             if (rec == null) return null;
 
             AnalyzeKeyPhrase(rec);
+
+            MasterView.Cache.Update(rec);
+            MasterView.Update(rec);
 
             return adapter.Get();
 
@@ -488,8 +500,8 @@ namespace BetaAI
 
             }
 
-            MasterView.Cache.Update(rec);
-            MasterView.Update(rec);
+            //MasterView.Cache.Update(rec);
+            //MasterView.Update(rec);
 
             this.Persist();
 
