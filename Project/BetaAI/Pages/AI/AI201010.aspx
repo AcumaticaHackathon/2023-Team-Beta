@@ -1,5 +1,5 @@
-<%@ Page Language="C#" MasterPageFile="~/MasterPages/FormTab.master" AutoEventWireup="true" ValidateRequest="false" CodeFile="AI201010.aspx.cs" Inherits="Page_AI201010" Title="Untitled Page" %>
-<%@ MasterType VirtualPath="~/MasterPages/FormTab.master" %>
+<%@ Page Language="C#" MasterPageFile="~/MasterPages/FormDetail.master" AutoEventWireup="true" ValidateRequest="false" CodeFile="AI201010.aspx.cs" Inherits="Page_AI201010" Title="Untitled Page" %>
+<%@ MasterType VirtualPath="~/MasterPages/FormDetail.master" %>
 
 <asp:Content ID="cont1" ContentPlaceHolderID="phDS" Runat="Server">
 	<px:PXDataSource ID="ds" runat="server" Visible="True" Width="100%"
@@ -19,19 +19,16 @@
 	</px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" Runat="Server">
-	<px:PXTab ID="tab" runat="server" Width="100%" Height="150px" DataSourceID="ds" AllowAutoHide="false">
-		<Items>
-			<px:PXTabItem Text="Tab item 1">
-				<Template>
-					
-				</Template>
-			</px:PXTabItem>
-			<px:PXTabItem Text="Tab item 2">
-				<Template>
-					
-				</Template>
-			</px:PXTabItem>
-		</Items>
+	<px:PXGrid ID="grid" runat="server" DataSourceID="ds" Width="100%" Height="150px" SkinID="Details" AllowAutoHide="false">
+		<Levels>
+			<px:PXGridLevel DataMember="EntityLink">
+			    <Columns>
+			        
+			    </Columns>
+			</px:PXGridLevel>
+		</Levels>
 		<AutoSize Container="Window" Enabled="True" MinHeight="150" />
-	</px:PXTab>
+		<ActionBar >
+		</ActionBar>
+	</px:PXGrid>
 </asp:Content>
