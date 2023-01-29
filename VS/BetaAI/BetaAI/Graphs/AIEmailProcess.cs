@@ -51,10 +51,15 @@ namespace BetaAI
 
                     POOrder order = (POOrder)res;
 
-                    //t.TransNbr = "12345";
                     t.RefType = "PO";
-                    //t.RefNbr = order.OrderNbr;
-                    t.RefNbr = order.OrderNbr;
+                    if (order != null)
+                    {
+                        t.RefNbr = order.OrderNbr;
+                    }
+                    else
+                    {
+                        t.RefNbr = "Not Mapped";
+                    }
                     t.SubRefType = "Purchase Order Update";
                     t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
@@ -68,9 +73,16 @@ namespace BetaAI
                         .Where<CRActivity.noteID.IsEqual<@P.AsGuid>>.View.Select(graph, mail.RefNoteID);
 
                     CRCase crmCase = (CRCase)res;
-                    //t.TransNbr = "12346";
                     t.RefType = "CM";
-                    t.RefNbr = crmCase.CaseCD;
+                    if (crmCase != null)
+                    {
+                        t.RefNbr = crmCase.CaseCD;
+                    }
+                    else
+                    {
+                        t.RefNbr = "Not Mapped";
+                    }
+
                     t.SubRefType = "Case Analysis";
                     t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
