@@ -15,7 +15,10 @@ namespace BetaAI
     {
         public PXCancel<SMEmail> Cancel;
         public PXProcessing<SMEmail, Where<SMEmailExt.usrEvaluated, IsNull,
-            Or<SMEmailExt.usrEvaluated,Equal<False>>>>  EmailsToProcess;
+            Or<SMEmailExt.usrEvaluated,Equal<False>>>,
+            OrderBy<Desc<SMEmail.createdDateTime>>>  EmailsToProcess;
+
+        public PXSelect<SMEmail> EmailsToUpdate;
 
         public AIEmailProcess()
         {
@@ -98,8 +101,22 @@ namespace BetaAI
 
                 }
 
+                SMEmail updateEmail = mail;
+                SMEmailExt ext = PXCache<SMEmail>.GetExtension<SMEmailExt>(updateEmail);
+                ext.UsrEvaluated = true;
+
+                //SetEmailFlat(mail);
+
                 graph.Actions.PressSave();
+                
             }
+        }
+
+        static void SetEmailFlat(SMEmail m)
+        {
+            AIEmailProcess g = PXGraph.CreateInstance<AIEmailProcess>();
+            g.EmailsToProcess.Insert(m);
+            g.Persist(typeof(SMEmail), PXDBOperation.Update);
         }
 
     }
