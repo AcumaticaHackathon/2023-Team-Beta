@@ -25,8 +25,13 @@
         </layout>
         <data>
             <SiteMap>
-                <row Position="21517" Title="AI Beta" Url="~/Pages/AI/AI201010.aspx" ScreenID="AI201010" NodeID="1ad20f4a-3208-41bd-999b-22c767b02ad7" ParentID="00000000-0000-0000-0000-000000000000" />
+                <row Position="21517" Title="AI Beta" Url="~/Pages/AI/AI201010.aspx" ScreenID="AI201010" NodeID="1ad20f4a-3208-41bd-999b-22c767b02ad7" ParentID="00000000-0000-0000-0000-000000000000">
+                    <MUIScreen IsPortal="0" WorkspaceID="2662fdf0-8e29-450c-9a77-c92c1c1c2904" Order="0" SubcategoryID="aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa" />
+                </row>
             </SiteMap>
+            <MUIWorkspace>
+                <row IsPortal="0" WorkspaceID="2662fdf0-8e29-450c-9a77-c92c1c1c2904" Order="875" Title="Beta AI" Icon="flow" IsSystem="0" />
+            </MUIWorkspace>
         </data>
     </data-set>
 </SiteMapNode>

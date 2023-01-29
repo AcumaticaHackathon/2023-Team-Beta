@@ -64,6 +64,7 @@ namespace BetaAI
                     t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
 
+                    graph.Persist();
                     graph.AnalyzeEntityRecog(t);
 
                 }
@@ -89,6 +90,8 @@ namespace BetaAI
                     t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
 
+
+                    graph.Persist();
                     graph.AnalyzeSentiment(t);
 
                 }
