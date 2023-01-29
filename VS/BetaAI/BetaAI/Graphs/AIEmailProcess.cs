@@ -55,6 +55,7 @@ namespace BetaAI
                     if (order != null)
                     {
                         t.RefNbr = order.OrderNbr;
+                        t.RefNoteId = order.NoteID;
                     }
                     else
                     {
@@ -72,7 +73,7 @@ namespace BetaAI
                 {
 
                     PXResult<CRActivity, CRCase> res = (PXResult<CRActivity, CRCase>)SelectFrom<CRActivity>
-                        .InnerJoin<POOrder>.On<CRActivity.refNoteID.IsEqual<CRCase.noteID>>
+                        .InnerJoin<CRCase>.On<CRActivity.refNoteID.IsEqual<CRCase.noteID>>
                         .Where<CRActivity.noteID.IsEqual<@P.AsGuid>>.View.Select(graph, mail.RefNoteID);
 
                     CRCase crmCase = (CRCase)res;
