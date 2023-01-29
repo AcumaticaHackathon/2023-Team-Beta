@@ -134,7 +134,7 @@ namespace BetaAI
             sb.AppendLine("      {");
             sb.AppendLine("        \"id\": \"1\",");
             sb.AppendLine("        \"language\": \"en\",");
-            sb.AppendFormat("        \"text\": \"{0}\"", rec.AnalysisText);
+            sb.AppendFormat("        \"text\": {0}", Newtonsoft.Json.JsonConvert.ToString(rec.AnalysisText));
             sb.AppendLine();
 
             sb.AppendLine("      }");
@@ -225,7 +225,7 @@ namespace BetaAI
             sb.AppendLine("      { ");
             sb.AppendLine("        \"id\": \"1\", ");
             sb.AppendLine("        \"language\": \"en\", ");
-            sb.AppendFormat("        \"text\": \"{0}\" ", rec.AnalysisText);
+            sb.AppendFormat("        \"text\": {0}", Newtonsoft.Json.JsonConvert.ToString(rec.AnalysisText));
             sb.AppendLine("      } ");
             sb.AppendLine("    ] ");
             sb.AppendLine("  } ");
@@ -318,7 +318,7 @@ namespace BetaAI
             sb.AppendLine("        \"documents\": [ ");
             sb.AppendLine("            { ");
             sb.AppendLine("                \"id\": \"document_CustomEntityRecognition\", ");
-            sb.AppendFormat("                \"text\": \"{0}\", ", rec.AnalysisText);
+            sb.AppendFormat("                \"text\": {0}", Newtonsoft.Json.JsonConvert.ToString(rec.AnalysisText));
             sb.AppendLine();
             sb.AppendLine("                \"language\": \"EN\" ");
             sb.AppendLine("            } ");
@@ -421,7 +421,7 @@ namespace BetaAI
             sb.AppendLine("      { ");
             sb.AppendLine("        \"id\": \"1\", ");
             sb.AppendLine("        \"language\": \"en\", ");
-            sb.AppendFormat("        \"text\": \"{0}\" ", rec.AnalysisText);
+            sb.AppendFormat("        \"text\": {0}", Newtonsoft.Json.JsonConvert.ToString(rec.AnalysisText));
             sb.AppendLine();
 
             sb.AppendLine("      } ");
