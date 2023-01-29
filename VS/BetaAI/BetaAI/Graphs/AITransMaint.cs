@@ -23,7 +23,7 @@ namespace BetaAI
         #region clear
         public PXAction<AITrans> clearanalysis;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Analysis Clear", MapEnableRights = PXCacheRights.Insert,
+        [PXUIField(DisplayName = "Clear", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
         public virtual System.Collections.IEnumerable ClearAnalysis(PXAdapter adapter)
         {
@@ -98,7 +98,7 @@ namespace BetaAI
         #region sentiment
         public PXAction<AITrans> analyzeSentiment;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Analyze Sentiment", MapEnableRights = PXCacheRights.Insert,
+        [PXUIField(DisplayName = "Sentiment", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
         public virtual System.Collections.IEnumerable AnalyzeSentiment(PXAdapter adapter)
         {
@@ -188,7 +188,7 @@ namespace BetaAI
         #region entitylink
         public PXAction<AITrans> analyzeEntityLink;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Analyze EntityLink", MapEnableRights = PXCacheRights.Insert,
+        [PXUIField(DisplayName = "EntityLink", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
         public virtual System.Collections.IEnumerable AnalyzeEntityLink(PXAdapter adapter)
         {
@@ -275,7 +275,7 @@ namespace BetaAI
         #region entityrecog
         public PXAction<AITrans> analyzeEntityRecog;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Analyze EntityRecog", MapEnableRights = PXCacheRights.Insert,
+        [PXUIField(DisplayName = "EntityRecog", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
         public virtual System.Collections.IEnumerable AnalyzeEntityRecog(PXAdapter adapter)
         {
