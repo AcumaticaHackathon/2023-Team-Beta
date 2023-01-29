@@ -15,8 +15,16 @@
 	<px:PXFormView ID="form" runat="server" DataSourceID="ds" DataMember="MasterView" Width="100%" Height="100px" AllowAutoHide="false">
 		<Template>
 			<px:PXLayoutRule ID="PXLayoutRule1" runat="server" StartRow="True"></px:PXLayoutRule>
-			<px:PXTextEdit runat="server" ID="CstPXTextEdit3" DataField="RefNbr" />
-			<px:PXTextEdit runat="server" ID="CstPXTextEdit2" DataField="RefType" /></Template>
+			<px:PXTextEdit runat="server" ID="CstPXTextEdit18" DataField="TransNbr" ></px:PXTextEdit>
+			<px:PXTextEdit runat="server" ID="CstPXTextEdit2" DataField="RefType" ></px:PXTextEdit>
+			<px:PXTextEdit runat="server" ID="CstPXTextEdit3" DataField="RefNbr" ></px:PXTextEdit>
+			<px:PXTextEdit runat="server" ID="CstPXTextEdit17" DataField="SubRefType" ></px:PXTextEdit>
+			<px:PXTextEdit runat="server" ID="CstPXTextEdit16" DataField="SubRefNbr" ></px:PXTextEdit>
+			<px:PXLayoutRule runat="server" ID="CstPXLayoutRule27" StartColumn="True" />
+			<px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit14" DataField="SentimentProcDate" ></px:PXDateTimeEdit>
+			<px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit10" DataField="KeyPhraseProcDate" ></px:PXDateTimeEdit>
+			<px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit9" DataField="EntityRecogProcDate" ></px:PXDateTimeEdit>
+			<px:PXDateTimeEdit runat="server" ID="CstPXDateTimeEdit8" DataField="EntityLinkProcDate" ></px:PXDateTimeEdit></Template>
 	</px:PXFormView>
 </asp:Content>
 <asp:Content ID="cont3" ContentPlaceHolderID="phG" Runat="Server">
@@ -40,7 +48,13 @@
 									<px:PXGridColumn DataField="SentenceText" Width="70" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="SentimentPositive" Width="100" ></px:PXGridColumn>
 									<px:PXGridColumn DataField="SentimentNeutral" Width="100" ></px:PXGridColumn>
-									<px:PXGridColumn DataField="SentimentNegative" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels></px:PXGrid></Template>
+									<px:PXGridColumn DataField="SentimentNegative" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels></px:PXGrid>
+					<px:PXFormView runat="server" ID="CstFormView22" DataMember="MasterView" >
+						<Template>
+							<px:PXTextEdit runat="server" ID="CstPXTextEdit26" DataField="SentimentResult" />
+							<px:PXNumberEdit runat="server" ID="CstPXNumberEdit25" DataField="SentimentPositive" />
+							<px:PXNumberEdit runat="server" ID="CstPXNumberEdit24" DataField="SentimentNeutral" />
+							<px:PXNumberEdit runat="server" ID="CstPXNumberEdit23" DataField="SentimentNegative" /></Template></px:PXFormView></Template>
 			</px:PXTabItem>
 			<px:PXTabItem Text="Entity Recognition" >
 				<Template>
@@ -57,9 +71,14 @@
 						<Levels>
 							<px:PXGridLevel DataMember="KeyPhrase" >
 								<Columns>
-									<px:PXGridColumn DataField="EntityText" Width="70" />
-									<px:PXGridColumn DataField="KeyPhrase" Width="280" />
-									<px:PXGridColumn DataField="Confidence" Width="100" /></Columns></px:PXGridLevel></Levels></px:PXGrid></Template></px:PXTabItem></Items>
+									<px:PXGridColumn DataField="EntityText" Width="70" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="KeyPhrase" Width="280" ></px:PXGridColumn>
+									<px:PXGridColumn DataField="Confidence" Width="100" ></px:PXGridColumn></Columns></px:PXGridLevel></Levels></px:PXGrid></Template></px:PXTabItem>
+			<px:PXTabItem Text="Analysis" >
+				<Template>
+					<px:PXFormView runat="server" ID="CstFormView20" DataMember="MasterView">
+						<Template>
+							<px:PXTextEdit runat="server" ID="CstPXTextEdit21" DataField="AnalysisText" /></Template></px:PXFormView></Template></px:PXTabItem></Items>
 		<AutoSize Container="Window" Enabled="True" MinHeight="150" ></AutoSize>
 	</px:PXTab>
 </asp:Content>

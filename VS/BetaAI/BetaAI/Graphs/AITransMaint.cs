@@ -11,21 +11,21 @@ namespace BetaAI
 
         public SelectFrom<AITrans>.View MasterView;
         public SelectFrom<AITransEntityLink>
-            .Where<AITransEntityLink.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View EntityLink;  //TODO:  Need to rename this to be specific type and add all 4
+            .Where<AITransEntityLink.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View EntityLink;
         public SelectFrom<AITranSentiment>
             .Where<AITranSentiment.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View Sentiment;
         public SelectFrom<AITransEntityRecog>
             .Where<AITransEntityRecog.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View EntityRecog;
-
         public SelectFrom<AITransKeyPhrase>
             .Where<AITransKeyPhrase.transNbr.IsEqual<AITrans.transNbr.FromCurrent>>.View KeyPhrase;
 
+
         #region clear
-        public PXAction<AITrans> clear;
+        public PXAction<AITrans> clearanalysis;
         [PXButton(CommitChanges = true)]
-        [PXUIField(DisplayName = "Clear", MapEnableRights = PXCacheRights.Insert,
+        [PXUIField(DisplayName = "Analysis Clear", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
-        public virtual System.Collections.IEnumerable Clear(PXAdapter adapter)
+        public virtual System.Collections.IEnumerable ClearAnalysis(PXAdapter adapter)
         {
             var rec = this.MasterView.Current;
             if (rec == null) return null;
@@ -253,7 +253,7 @@ namespace BetaAI
                         var newrec = new AITransEntityLink();
                         newrec.TransNbr = rec.TransNbr;
                         newrec.EntityName = entity.name;
-                        newrec.EntityText = match.text ;
+                        newrec.EntityText = match.text;
                         newrec.Confidence = new System.Decimal(match.confidenceScore);
 
                         EntityLink.Insert(newrec);
