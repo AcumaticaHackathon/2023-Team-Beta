@@ -64,6 +64,8 @@ namespace BetaAI
                     t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
 
+                    graph.AnalyzeEntityRecog(t);
+
                 }
                 if (mail.Subject.Contains("Case"))
                 {
@@ -86,6 +88,8 @@ namespace BetaAI
                     t.SubRefType = "Case Analysis";
                     t.AnalysisText = mail.Body;
                     graph.MasterView.Insert(t);
+
+                    graph.AnalyzeSentiment(t);
 
                 }
 

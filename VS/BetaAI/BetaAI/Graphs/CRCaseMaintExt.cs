@@ -39,7 +39,7 @@ namespace PX.Objects.CR
                 graph.MasterView.Insert(rec);
                 graph.Persist();
 
-                graph.AnalyzeSentiment(adapter);
+                graph.AnalyzeSentiment(rec);
 
             }
             return adapter.Get();

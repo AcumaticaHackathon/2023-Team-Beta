@@ -98,14 +98,22 @@ namespace BetaAI
         #endregion
 
         #region sentiment
-        public PXAction<AITrans> analyzeSentiment;
+        public PXAction<AITrans> analyzeSentimentAction;
         [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "Sentiment", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
-        public virtual System.Collections.IEnumerable AnalyzeSentiment(PXAdapter adapter)
+        public virtual System.Collections.IEnumerable AnalyzeSentimentAction(PXAdapter adapter)
         {
             var rec = this.MasterView.Current;
             if (rec == null) return null;
+
+            AnalyzeSentiment(rec);
+
+            return adapter.Get();
+        }
+
+        public void AnalyzeSentiment(AITrans rec) 
+        {
 
             // CLear Old Results from Child
             var sentiments = SelectFrom<AITranSentiment>.
@@ -180,7 +188,6 @@ namespace BetaAI
 
             this.Persist();
 
-            return adapter.Get();
         }
         #endregion
 
@@ -188,15 +195,23 @@ namespace BetaAI
 
 
         #region entitylink
-        public PXAction<AITrans> analyzeEntityLink;
+        public PXAction<AITrans> analyzeEntityLinkAction;
         [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "EntityLink", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
-        public virtual System.Collections.IEnumerable AnalyzeEntityLink(PXAdapter adapter)
+        public virtual System.Collections.IEnumerable AnalyzeEntityLinkAction(PXAdapter adapter)
         {
             var rec = this.MasterView.Current;
             if (rec == null) return null;
 
+            AnalyzeEntityLink(rec);
+
+            return adapter.Get();
+
+        }
+
+        public void AnalyzeEntityLink(AITrans rec)
+        { 
             // CLear Old Results from Child
             var entitylinks = SelectFrom<AITransEntityLink>.
                       Where<AITransEntityLink.transNbr.
@@ -269,21 +284,28 @@ namespace BetaAI
 
             this.Persist();
 
-            return adapter.Get();
         }
         #endregion
 
 
-        #region entityrecog
+        #region entityrecogAction
         public PXAction<AITrans> analyzeEntityRecog;
         [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "EntityRecog", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
-        public virtual System.Collections.IEnumerable AnalyzeEntityRecog(PXAdapter adapter)
+        public virtual System.Collections.IEnumerable AnalyzeEntityRecogAction(PXAdapter adapter)
         {
             var rec = this.MasterView.Current;
             if (rec == null) return null;
 
+            AnalyzeEntityRecog(rec);
+
+            return adapter.Get();
+
+        }
+
+        public void AnalyzeEntityRecog(AITrans rec)
+        { 
             // CLear Old Results from Child
             var entityrecogs = SelectFrom<AITransEntityRecog>.
                       Where<AITransEntityRecog.transNbr.
@@ -379,20 +401,27 @@ namespace BetaAI
 
             this.Persist();
 
-            return adapter.Get();
         }
         #endregion
 
-        #region keyphrase
+        #region keyphraseAction
         public PXAction<AITrans> analyzeKeyPhrase;
         [PXButton(CommitChanges = true)]
         [PXUIField(DisplayName = "KeyPhrase", MapEnableRights = PXCacheRights.Insert,
             MapViewRights = PXCacheRights.Insert)]
-        public virtual System.Collections.IEnumerable AnalyzeKeyPhrase(PXAdapter adapter)
+        public virtual System.Collections.IEnumerable AnalyzeKeyPhraseAction(PXAdapter adapter)
         {
             var rec = this.MasterView.Current;
             if (rec == null) return null;
 
+            AnalyzeKeyPhrase(rec);
+
+            return adapter.Get();
+
+        }
+
+        public void AnalyzeKeyPhrase(AITrans rec)
+        {
             // CLear Old Results from Child
             var keyphrases = SelectFrom<AITransKeyPhrase>.
                       Where<AITransKeyPhrase.transNbr.
@@ -464,7 +493,6 @@ namespace BetaAI
 
             this.Persist();
 
-            return adapter.Get();
         }
         #endregion
 
